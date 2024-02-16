@@ -75,3 +75,31 @@ The __init__.py file tells python that this is a package and help us avoid circu
 python initdb.py
 python run.py
 ```
+
+### Authorization and Authentication
+```bash
+pip install flask-login
+pip install flask-bcrypt
+
+python
+
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt()
+bcrypt.generate_password_hash('testing')
+>>> "a password hash in bytes"
+bcrypt.generate_password_hash('testing').decode('utf-8')
+>>> "a password hash as a text string"
+```
+
+With bcrypt, the hash function generates a unique value even when the same password is used. This is beneficial because it prevents someone from attempting to crack passwords using hash tables.
+
+```bash
+hashed = bcrypt.generate_password_hash('my_super_secure_password').decode('utf-8')
+bcrypt.check_password_hash(hashed, 'wrong_password')
+>>> False
+bcrypt.check_password_hash(hashed, 'my_super_secure_password')
+>>> True
+```
+
+Flask-Login provides user session management for Flask applications, making it easier to handle user authentication and user sessions. It allows you to manage user sessions, handle user login/logout, and restrict access to certain views or routes based on the user's authentication status.
+
