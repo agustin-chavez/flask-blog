@@ -1,5 +1,12 @@
 # flask-blog
-A blog application made with Python and Flask
+A blog application made with Python, Flask, SQLite3 and SQLAlchemy.
+
+## Features
+  - Register, login and logout
+  - See and update account username, email, password and profile picture
+  - Form validations and encrypted passwords
+  - Create and delete posts
+  - See posts
 
 ## Notes
 
@@ -103,3 +110,22 @@ bcrypt.check_password_hash(hashed, 'my_super_secure_password')
 
 Flask-Login provides user session management for Flask applications, making it easier to handle user authentication and user sessions. It allows you to manage user sessions, handle user login/logout, and restrict access to certain views or routes based on the user's authentication status.
 
+### Images
+To enhance site performance and prevent slowdowns, it's advisable to scale down large profile images before saving them to the filesystem. This can be achieved using various Python libraries, such as Pillow (PIL), which is commonly used for image processing.
+
+```bash
+pip install Pillow
+```
+
+```python
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_filename = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_filename)
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+    return picture_filename
+```

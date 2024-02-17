@@ -1,4 +1,4 @@
-from flaskblog import app, db
+from flaskblog import app, db, bcrypt
 from flaskblog.models import User, Post
 from datetime import datetime
 
@@ -48,8 +48,11 @@ for post_data in posts_data:
     author = User.query.filter_by(username=post_data['author']).first()
     
     if not author:
-        # Si el autor no existe, crea un nuevo usuario
-        author = User(username=post_data['author'], email=f"{post_data['author'].lower()}@example.com", password='password')
+        username = post_data['author'].replace(' ', '.')
+        email = f"{post_data['author'].lower().replace(' ', '.')}@example.com"
+        hashed_password = bcrypt.generate_password_hash('password').decode('utf-8')
+
+        author = User(username=username, email=email, password=hashed_password)
         db.session.add(author)
         db.session.commit()
 
