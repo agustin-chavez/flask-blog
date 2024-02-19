@@ -129,3 +129,9 @@ def save_picture(form_picture):
     i.save(picture_path)
     return picture_filename
 ```
+
+### Mail
+
+```bash
+pip install flask-mail
+```

@@ -1,8 +1,9 @@
-from flaskblog import app, db, bcrypt
+from flaskblog import db, bcrypt
 from flaskblog.models import User, Post
 from datetime import datetime
+from flask import current_app
 
-app.app_context().push()
+current_app.app_context().push()
 db.create_all()
 
 from datetime import datetime
