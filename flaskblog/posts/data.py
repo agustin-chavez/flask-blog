@@ -1,14 +1,6 @@
-from flaskblog import db, bcrypt
-from flaskblog.models import User, Post
-from datetime import datetime
-from flask import current_app
-
-current_app.app_context().push()
-db.create_all()
-
 from datetime import datetime
 
-posts_data = [
+posts = [
     {
         'author': 'johndoe',
         'title': 'Introduction to Python Programming',
@@ -190,27 +182,3 @@ posts_data = [
         'date_posted': datetime(2024, 1, 30),
     },
 ]
-
-for post_data in posts_data:
-    author = User.query.filter_by(username=post_data['author']).first()
-    
-    if not author:
-        username = post_data['author'].replace(' ', '.')
-        email = f"{post_data['author'].lower().replace(' ', '.')}@example.com"
-        hashed_password = bcrypt.generate_password_hash('password').decode('utf-8')
-
-        author = User(username=username, email=email, password=hashed_password)
-        db.session.add(author)
-        db.session.commit()
-
-    post = Post(
-        title=post_data['title'],
-        content=post_data['content'],
-        date_posted=post_data['date_posted'],
-        author=author
-    )
-    
-    db.session.add(post)
-    db.session.commit()
-
-print("DB populated!")

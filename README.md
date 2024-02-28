@@ -1,6 +1,31 @@
 # flask-blog
 A blog application made with Python, Flask, SQLite3 and SQLAlchemy.
 
+### Run
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+export SQLALCHEMY_DATABASE_URI="sqlite:///site.db"
+export SECRET_KEY="<SECRET_KEY_FOR_SESSIONS_SECURITY>"
+export EMAIL_USER="<EMAIL_FOR_RESET_PASSWORD_SIMULATION>"
+export EMAIL_PASS="<PASS_FOR_RESET_PASSWORD_SIMULATION>"
+
+python3 run.py
+```
+
+Go to http://127.0.0.1:5000/
+
+## How to generate a secret with the python interpreter
+
+```python
+import secrets
+
+secrets.token_hex(16)
+```
+
 ## Features
   - Register, login and logout
   - See and update account username, email, password and profile picture
@@ -8,7 +33,8 @@ A blog application made with Python, Flask, SQLite3 and SQLAlchemy.
   - Create and delete posts
   - See posts
 
-## Notes
+
+## Development notes for reference
 
 ### Set environment variable and run
 ```bash
@@ -29,6 +55,8 @@ python3 -m venv .venv
 pip install --upgrade pip
 pip install Flask
 pip install flask-wtf
+
+python3 run.py
 ```
 
 Go to http://127.0.0.1:5000/

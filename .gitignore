@@ -160,3 +160,6 @@ cython_debug/
 #.idea/
 
 flaskblog/static/profile_pics/*
+
+flask-blog.code-workspace
+.DS_Store
