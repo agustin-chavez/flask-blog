@@ -1,6 +1,6 @@
 # flask-blog
 
-A blog application made with Python 3.12, Flask, SQLite3 and SQLAlchemy.
+A CRUD blog application made with Python 3.12, Flask, SQLite3 and SQLAlchemy.
 
 ### Run
 
@@ -31,7 +31,9 @@ secrets.token_hex(16)
 ## Features
 
 - Register, login and logout
-- Form validations and encrypted passwords
+- Flash messages
+- Form validations
+- Encrypted passwords
 - See and update account username, email, password and profile picture
 - Create, Read, Update and Delete posts
   
@@ -48,6 +50,10 @@ secrets.token_hex(16)
     ![post](https://github.com/agustin-chavez/flask-blog/assets/39955956/701f2d72-394f-430b-8dfd-611f8bcb3a66)
   
     ![posts](https://github.com/agustin-chavez/flask-blog/assets/39955956/63eb7081-e7c1-44ef-8a0a-05154ea33a9a)
+
+    ![update](https://github.com/agustin-chavez/flask-blog/assets/39955956/e4347a6a-99eb-427e-a5e9-2027796ece1f)
+
+    ![delete](https://github.com/agustin-chavez/flask-blog/assets/39955956/5843b1e3-0631-4ab8-932d-6c63455fd39c)
 
 
 ## Development notes for reference
