@@ -1,6 +1,7 @@
 # flask-blog
 
 A CRUD blog application made with Python 3.12, Flask, SQLite3 and SQLAlchemy.
+https://flask-blog-production-3351.up.railway.app/
 
 ### Run
 
