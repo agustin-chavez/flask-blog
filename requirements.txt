@@ -59,4 +59,4 @@ Werkzeug==3.0.1
 wincertstore==0.2
 WTForms==2.3.3
 wurlitzer==3.0.3
-gunicorn==21.2.0
+gunicorn
