@@ -31,10 +31,24 @@ secrets.token_hex(16)
 ## Features
 
 - Register, login and logout
-- See and update account username, email, password and profile picture
 - Form validations and encrypted passwords
-- Create and delete posts
-- See posts
+- See and update account username, email, password and profile picture
+- Create, Read, Update and Delete posts
+  
+    ![register](https://github.com/agustin-chavez/flask-blog/assets/39955956/846797ec-c244-4534-b67f-04c31a8b7e94)
+  
+    ![login](https://github.com/agustin-chavez/flask-blog/assets/39955956/f6e54f8c-82fb-4d58-a38b-a16cba767303)
+  
+    ![validations](https://github.com/agustin-chavez/flask-blog/assets/39955956/f6e3ac4f-e347-4f3f-86c1-92524cbc574f)
+
+    ![home](https://github.com/agustin-chavez/flask-blog/assets/39955956/c2463aa0-ce38-494b-9c8f-21f30d258fcf)
+
+    ![account](https://github.com/agustin-chavez/flask-blog/assets/39955956/cd2e5eea-df0a-477e-9952-f3b622dbda95)
+
+    ![post](https://github.com/agustin-chavez/flask-blog/assets/39955956/701f2d72-394f-430b-8dfd-611f8bcb3a66)
+  
+    ![posts](https://github.com/agustin-chavez/flask-blog/assets/39955956/63eb7081-e7c1-44ef-8a0a-05154ea33a9a)
+
 
 ## Development notes for reference
 
