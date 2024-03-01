@@ -4,39 +4,35 @@ from flaskblog.posts.data import posts
 
 app = create_app()
 
+with app.app_context():
+    db.create_all()
+    print('Posts:', Post.query.count())
+    if Post.query.count() == 0:
+        print("Creating posts...")
+        for post_data in posts:
+            author = User.query.filter_by(username=post_data['author']).first()
 
-def init_db():
-    with app.app_context():
-        db.create_all()
-        print('Posts:', Post.query.count())
-        if Post.query.count() == 0:
-            print("Creating posts...")
-            for post_data in posts:
-                author = User.query.filter_by(username=post_data['author']).first()
+            if not author:
+                username = post_data['author'].replace(' ', '.')
+                email = f"{post_data['author'].lower().replace(' ', '.')}@example.com"
+                hashed_password = bcrypt.generate_password_hash('password').decode('utf-8')
 
-                if not author:
-                    username = post_data['author'].replace(' ', '.')
-                    email = f"{post_data['author'].lower().replace(' ', '.')}@example.com"
-                    hashed_password = bcrypt.generate_password_hash('password').decode('utf-8')
-
-                    author = User(username=username, email=email, password=hashed_password)
-                    db.session.add(author)
-                    db.session.commit()
-
-                post = Post(
-                    title=post_data['title'],
-                    content=post_data['content'],
-                    date_posted=post_data['date_posted'],
-                    author=author
-                )
-
-                db.session.add(post)
+                author = User(username=username, email=email, password=hashed_password)
+                db.session.add(author)
                 db.session.commit()
 
-            print("DB populated!")
+            post = Post(
+                title=post_data['title'],
+                content=post_data['content'],
+                date_posted=post_data['date_posted'],
+                author=author
+            )
 
+            db.session.add(post)
+            db.session.commit()
+
+        print("DB populated!")
 
 if __name__ == "__main__":
-    init_db()
     debug = bool(app.config['DEBUG'] == 'True')
     app.run(debug=debug)
