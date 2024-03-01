@@ -37,7 +37,7 @@ pexpect==4.9.0
 pickleshare==0.7.5
 pillow==10.2.0
 platformdirs==4.2.0
-prompt-toolkit==3.0.5
+prompt-toolkit==3.0.43
 ptyprocess==0.7.0
 pure-eval==0.2.2
 pycparser==2.18
@@ -51,7 +51,7 @@ spyder-kernels==1.9.3
 SQLAlchemy==2.0.27
 stack-data==0.6.3
 tornado==6.0.4
-traitlets==4.3.3
+traitlets==5.14.1
 typing_extensions==4.10.0
 urllib3==1.26.18
 wcwidth==0.2.5
