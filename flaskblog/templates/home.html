@@ -23,7 +23,7 @@
     {% endfor %}
 
     <div class="d-flex justify-content-center mb-4 align-items-end">
-        {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=5, right_current=5) %}
+        {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
             <div class="m-2">
                 {% if page_num %}
                     {% if posts.page == page_num %}

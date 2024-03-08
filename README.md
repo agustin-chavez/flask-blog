@@ -13,9 +13,7 @@ pip install -r requirements.txt
 
 export DEBUG="True"
 export SQLALCHEMY_DATABASE_URI="sqlite:///site.db"
-export SECRET_KEY="<SECRET_KEY_FOR_SESSIONS_SECURITY>"
-export EMAIL_USER="<EMAIL_FOR_RESET_PASSWORD_SIMULATION>"
-export EMAIL_PASS="<PASS_FOR_RESET_PASSWORD_SIMULATION>"
+export SECRET_KEY=$(python -c "import secrets; print(secrets.token_hex(16))")
 
 python3 run.py
 ```
@@ -200,10 +198,4 @@ def save_picture(form_picture):
     i.thumbnail(output_size)
     i.save(picture_path)
     return picture_filename
-```
-
-### Mail
-
-```bash
-pip install flask-mail
 ```

@@ -5,7 +5,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from flaskblog import db, bcrypt
 from flaskblog.models import Post, User
 from flaskblog.users.forms import RegistrationForm, LoginForm, UpdateAccountForm, ResetPasswordForm, RequestResetForm
-from flaskblog.users.utils import send_reset_email, save_picture
+from flaskblog.users.utils import save_picture
 
 users = Blueprint('users', __name__)
 
@@ -80,8 +80,8 @@ def reset_request():
     form = RequestResetForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        send_reset_email(user)
-        flash("An email was been sended with instructions to reset your password", 'info')
+        # send_reset_email(user)
+        flash('An email has been "sent" with instructions to reset your password', 'info')
         return redirect(url_for('users.login'))
     return render_template('reset_request.html', title="Reset password", form=form)
 

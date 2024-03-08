@@ -1,8 +1,10 @@
-from flask import url_for, current_app
-from flaskblog import mail
+import os
+import secrets
+
 from PIL import Image
-import secrets, os
+from flask import url_for, current_app
 from flask_mail import Message
+
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
@@ -24,4 +26,4 @@ def send_reset_email(user):
             {url_for('users.reset_token', token=token, _external=True)}
         If you did not make this request then simply ignore this email
     '''
-    mail.send(msg)
+    # mail.send(msg)
